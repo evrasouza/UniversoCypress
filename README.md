@@ -20,19 +20,23 @@
 
     https://nodejs.org/en/download/
 
+   ⚡ Yarn <br>
+
+    https://classic.yarnpkg.com/lang/en/docs/install/#windows-stable
+    npm install --global yarn
 
    ⚡ Cypress <br>
     
-    https://www.python.org/downloads/release/python-395/
-    pip install robotframework
+    https://docs.cypress.io/guides/getting-started/installing-cypress#What-you-ll-learn
+    yarn add cypress --dev
     
 
-🧰 Para rodar Local - Utilizar Hyper com GitBash:<br>
+🧰 <br>
 
-   ⚡ Clonar projeto e instalar dependências<br>
+   ⚡ <br>
 
-    pip install -r requirements.txt
+    pt
 
-   ⚡ Inicializar a biblioteca Browser<br>
+   ⚡ <br>
 
-    rfbrowser init
+    pt
