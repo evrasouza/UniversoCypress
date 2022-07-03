@@ -1,15 +1,10 @@
 # <img src="icon.png" align="right" />
-# <img src="robotidy_logo_small.png" align="left" />
+# <img src="LogoCypress.png" align="left" />
 
-# Robot Gravidade Zero - QAAcademy
-<h4>Estudo do Curso Gravidade Zero da QAAcademy</h4>
+# Universo Cypress - QAcademy
+<h4>Estudo do Universo Cypress QAcademy</h4>
 
 🧰 Ferramentas Utilizadas:<br>
-   ⚡ Robot 5 com python 3.9 <br>
-    
-    https://www.python.org/downloads/release/python-395/
-    pip install robotframework
-    
 
    ⚡ VSCode<br>
    
@@ -25,6 +20,12 @@
 
     https://nodejs.org/en/download/
 
+
+   ⚡ Cypress <br>
+    
+    https://www.python.org/downloads/release/python-395/
+    pip install robotframework
+    
 
 🧰 Para rodar Local - Utilizar Hyper com GitBash:<br>
 
