@@ -8,4 +8,6 @@ it('deve exibir a home page', function () {
 
     cy.get('#passId')
         .type('pwd123')
+    
+    cy.get('button[type=submit]').click()
 })
