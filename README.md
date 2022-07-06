@@ -40,3 +40,12 @@
    ⚡ <br>
 
     pt
+    
+#### 🧰 Últimos vídeos do Youtube da [QAcademy](https://github.com/weareqacademy)
+<!-- YOUTUBE:START -->
+- [Introdução ao Playwright - 4ALL Tests Referências 2022](https://www.youtube.com/watch?v=LEY3BLh_dA8)
+- [Entenda a importância do Page Objects em projetos reais](https://www.youtube.com/watch?v=DlEh9WzMyxs)
+- [Interface de linha de comandos com Hyper e Gitbash](https://www.youtube.com/watch?v=4pB8r6-dkSM)
+- [Automação Desktop com Robot Framework e Sikuli](https://www.youtube.com/watch?v=Xhk8EU04RpM)
+- [Diga Adeus ao Selenium e conheça o Playwright com Python #Playwright](https://www.youtube.com/watch?v=lrTtAzrX-JQ)
+<!-- YOUTUBE:END -->
