@@ -1,0 +1,21 @@
+{
+  "name": "training-wheels",
+  "version": "1.0.0",
+  "description": "Projeto para aprender elementos da web com cypress",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx cypress open"
+  },
+  "keywords": [
+    "cypress",
+    "nodjs",
+    "traiiniing-wheels",
+    "qaninja",
+    "qacademy"
+  ],
+  "author": "Everton Souza",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "^9.4.1"
+  }
+}
