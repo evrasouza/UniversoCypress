@@ -1,6 +1,6 @@
 
 
-it('deve exibir a home page', function () {
+it('deve realizar o login', function () {
     cy.visit('https://training-wheels-qaninja.herokuapp.com/login')
 
     cy.get('#nickId')
