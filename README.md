@@ -40,3 +40,7 @@
    ⚡ <br>
 
     pt
+    
+#### 🧰 Últimos vídeos do Youtube da [QAcademy](https://github.com/weareqacademy)
+<!-- YOUTUBE:START -->
+<!-- YOUTUBE:END -->
