@@ -5,10 +5,10 @@ it('selecionar data de naascimento', function () {
     cy.visit('/datepicker')
 
     const date = {
-        month: 'jul',
+        month: 'fev',
         year: '1983',
-        day: '19'
-    }
+        day: 1
+    }    
 
     cy.get('.datetimepicker-dummy-input').click()
 
@@ -18,5 +18,5 @@ it('selecionar data de naascimento', function () {
     cy.get('.datepicker-nav-year').click()
     cy.contains('.datepicker-year span', date.year).click()
 
-    cy.contains('button[class=date-item]', date.day).click()
+    cy.contains('button[class=date-item]', new RegExp('^' + date.day + '$', 'g')).click()
 })
