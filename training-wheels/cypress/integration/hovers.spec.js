@@ -1,6 +1,6 @@
 
 
-it('deve exiibir o nome da tecnologiia ao passar o mouse', function () {
+it('deve exibir o nome da tecnologiia ao passar o mouse', function () {
     cy.visit('/hovers')
 
     const techs = [
