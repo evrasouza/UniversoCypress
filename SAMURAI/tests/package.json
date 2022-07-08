@@ -1,0 +1,11 @@
+{
+  "name": "samuraibs-tests",
+  "version": "1.0.0",
+  "description": "Projeto de testes de aceitacao de ponta a ponta em Cypress",
+  "main": "index.js",
+  "author": "Everton Souza",
+  "license": "MIT",
+  "devDependencies": {
+    "cypress": "9.5.0"
+  }
+}
