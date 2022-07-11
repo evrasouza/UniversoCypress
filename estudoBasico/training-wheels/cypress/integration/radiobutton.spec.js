@@ -1,6 +1,6 @@
 
 
-it('deve marcar thoir Ragnarok', function () {
+it('deve marcar thor Ragnarok', function () {
     cy.visit('/radios')
 
     cy.get('input[value=thor3]')

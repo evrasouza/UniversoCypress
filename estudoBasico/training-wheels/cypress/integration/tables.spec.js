@@ -24,7 +24,7 @@ it('deve exibir os dados de caada filme da lista', function () {
 
 })
 
-it('deve exibir a mensagem de sucesso no popup', function () {
+it('deve validar a quantidade de filmes na tabela', function () {
     cy.visit('/tables')
     cy.get('table tbody tr')
         .then(function(series){
