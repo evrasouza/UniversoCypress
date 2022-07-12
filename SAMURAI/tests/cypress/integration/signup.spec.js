@@ -1,34 +1,39 @@
 
 describe('Cadastro', function () {
 
-    it('deve cadastrar um novo usuário', function () {
-
+    context('Quando o usuario é novato', function () {
         const user = {
             name: 'Everton Souza',
             email: 'evrasouza@samuraibs.com.br',
             password: 'pwd123'
         }
 
-        cy.task('removeUser', user.email)
-            .then(function (result) {
-                console.log(result)
-            })
+        before(function () {
+            cy.task('removeUser', user.email)
+                .then(function (result) {
+                    console.log(result)
+                })
+        })
 
-        cy.visit('/signup')
+        it('deve cadastrar com sucesso', function () {
 
-        cy.get('input[placeholder="Nome"]').type(user.name)
-        cy.get('input[placeholder="E-mail"]').type(user.email)
-        cy.get('input[placeholder="Senha"]').type(user.password)
+            cy.visit('/signup')
 
-        cy.contains('button', 'Cadastrar').click()
+            cy.get('input[placeholder="Nome"]').type(user.name)
+            cy.get('input[placeholder="E-mail"]').type(user.email)
+            cy.get('input[placeholder="Senha"]').type(user.password)
 
-        cy.get('.toast')
-            .should('be.visible')
-            .find('p')
-            .should('have.text', 'Agora você se tornou um(a) Samurai, faça seu login para ver seus agendamentos!')
+            cy.contains('button', 'Cadastrar').click()
+
+            cy.get('.toast')
+                .should('be.visible')
+                .find('p')
+                .should('have.text', 'Agora você se tornou um(a) Samurai, faça seu login para ver seus agendamentos!')
+        })
+
     })
 
-    it.only('deve exibir email já cadastrado', function () {
+    context('Quando o email já existe', function () {
 
         const user = {
             name: 'Dave Murray',
@@ -37,33 +42,42 @@ describe('Cadastro', function () {
             is_provider: true
         }
 
-        cy.task('removeUser', user.email)
-        .then(function (result) {
-            console.log(result)
-        })
+        before(function () {
 
-        cy.request(
-            'POST',
-            'http://localhost:3333/users',
-            user
-            ).then(function(response) {
+            cy.task('removeUser', user.email)
+                .then(function (result) {
+                    console.log(result)
+                })
+
+            cy.request(
+                'POST',
+                'http://localhost:3333/users',
+                user
+            ).then(function (response) {
                 expect(response.status).to.eql(200)
             })
 
-        cy.visit('/signup')
+        })
 
-        cy.get('input[placeholder="Nome"]').type(user.name)
-        cy.get('input[placeholder="E-mail"]').type(user.email)
-        cy.get('input[placeholder="Senha"]').type(user.password)
+        it('não deve cadastrar o usuário', function () {
 
-        cy.contains('button', 'Cadastrar').click()
+            cy.visit('/signup')
 
-        cy.get('.toast')
-            .should('be.visible')
-            .find('p')
-            .should('have.text', 'Email já cadastrado para outro usuário.')
+            cy.get('input[placeholder="Nome"]').type(user.name)
+            cy.get('input[placeholder="E-mail"]').type(user.email)
+            cy.get('input[placeholder="Senha"]').type(user.password)
+
+            cy.contains('button', 'Cadastrar').click()
+
+            cy.get('.toast')
+                .should('be.visible')
+                .find('p')
+                .should('have.text', 'Email já cadastrado para outro usuário.')
+
+        })
 
     })
+
 
 })
 
