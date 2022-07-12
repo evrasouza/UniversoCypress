@@ -1,22 +1,24 @@
 
 describe('Cadastro', function () {
 
+    const user = {
+        name: 'Everton Souza',
+        email: 'evrasouza@samuraibs.com.br',
+        password: 'pwd123'
+    }
+
     it('deve cadastrar um novo usuário', function () {
 
-        const name = 'Everton Souza'
-        const email = 'evrasouza@samuraibs.com.br'
-        const password = 'pwd123'
-
-        cy.task('removeUser', email)
+        cy.task('removeUser', user.email)
             .then(function (result) {
                 console.log(result)
             })
 
         cy.visit('/signup')
 
-        cy.get('input[placeholder="Nome"]').type(name)
-        cy.get('input[placeholder="E-mail"]').type(email)
-        cy.get('input[placeholder="Senha"]').type(password)
+        cy.get('input[placeholder="Nome"]').type(user.name)
+        cy.get('input[placeholder="E-mail"]').type(user.email)
+        cy.get('input[placeholder="Senha"]').type(user.password)
 
         // cy.intercept('POST', '/users', {
         //     statusCode: 200
@@ -34,15 +36,11 @@ describe('Cadastro', function () {
 
     it('deve exibir email já cadastrado', function () {
 
-        const name = 'Everton Souza'
-        const email = 'evrasouza@samuraibs.com.br'
-        const password = 'pwd123'
-
         cy.visit('/signup')
 
-        cy.get('input[placeholder="Nome"]').type(name)
-        cy.get('input[placeholder="E-mail"]').type(email)
-        cy.get('input[placeholder="Senha"]').type(password)
+        cy.get('input[placeholder="Nome"]').type(user.name)
+        cy.get('input[placeholder="E-mail"]').type(user.email)
+        cy.get('input[placeholder="Senha"]').type(user.password)
 
         cy.contains('button', 'Cadastrar').click()
 
