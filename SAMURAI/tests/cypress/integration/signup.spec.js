@@ -75,5 +75,28 @@ describe('Cadastro', function () {
         })
 
     })
+
+    context('quando a senha é muito curta', function() {
+
+        const passwords = ['1', '2a', '3bc', 'asf4', 'es5tr']
+
+        beforeEach(function(){
+            signupPage.go()            
+        })
+
+        passwords.forEach(function(p){
+            it('não deve cadastrar com a senha: ' + p, function () {
+
+                const user = { name: 'Janick Gers', email: 'janickgers@samuraibs.com.br', password: p }
+
+                signupPage.form(user)            
+                signupPage.submit()                
+            })
+        })
+
+        afterEach(function() {
+            signupPage.alertHaveText('Pelo menos 6 caracteres')
+        })
+    })
 })
 
