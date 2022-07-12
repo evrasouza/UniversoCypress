@@ -29,7 +29,7 @@ describe('Cadastro', function () {
         cy.get('.toast')
             .should('be.visible')
             .find('p')
-            .should('have.text', 'Agora você pode fazer seu login no Samurai Barbershop!')
+            .should('have.text', 'Agora você se tornou um(a) Samurai, faça seu login para ver seus agendamentos!')
     })
 
     it('deve exibir email já cadastrado', function () {
