@@ -2,7 +2,7 @@ import signupPage from '../support/pages/signup'
 
 describe('Cadastro', function () {
 
-    context('Quando o usuario é novato', function () {
+    context('Quando o usuario é novato', function() {
         const user = {
             name: 'Everton Souza',
             email: 'evrasouza@samuraibs.com.br',
@@ -24,7 +24,7 @@ describe('Cadastro', function () {
         })
     })
 
-    context('Quando o email já existe', function () {
+    context('Quando o email já existe', function() {
 
         const user = {
             name: 'Dave Murray',
@@ -55,6 +55,25 @@ describe('Cadastro', function () {
             signupPage.submit()
             signupPage.toast.shouldHaveText('Email já cadastrado para outro usuário.')
         })
+    })
+
+    context('quando o email é incorreto', function() {
+
+        const user = {
+            name: 'Steve Harris',
+            email: 'steveharris.samuraibs.com.br',
+            password: 'pwd123',
+            is_provider: true
+        }
+
+        it('deve exibir mensagem de alerta', function () {
+            signupPage.go()
+            signupPage.form(user)            
+            signupPage.submit()
+            signupPage.alertHaveText('Informe um email válido')
+
+        })
+
     })
 })
 
