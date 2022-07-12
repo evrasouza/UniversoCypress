@@ -20,7 +20,7 @@ describe('Cadastro', function () {
             signupPage.go()
             signupPage.form(user)
             signupPage.submit()
-            signupPage.toasterHaveText('Agora você se tornou um(a) Samurai, faça seu login para ver seus agendamentos!')
+            signupPage.toast.shouldHaveText('Agora você se tornou um(a) Samurai, faça seu login para ver seus agendamentos!')
         })
     })
 
@@ -53,7 +53,7 @@ describe('Cadastro', function () {
             signupPage.go()
             signupPage.form(user)
             signupPage.submit()
-            signupPage.toasterHaveText('Email já cadastrado para outro usuário.')
+            signupPage.toast.shouldHaveText('Email já cadastrado para outro usuário.')
         })
     })
 })
