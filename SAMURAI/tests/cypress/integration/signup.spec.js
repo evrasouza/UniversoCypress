@@ -1,3 +1,4 @@
+import signupPage from '../support/pages/signup'
 
 describe('Cadastro', function () {
 
@@ -16,21 +17,11 @@ describe('Cadastro', function () {
         })
 
         it('deve cadastrar com sucesso', function () {
-
-            cy.visit('/signup')
-
-            cy.get('input[placeholder^="Nome"]').type(user.name)
-            cy.get('input[placeholder$="email"]').type(user.email)
-            cy.get('input[placeholder*="senha"]').type(user.password)
-
-            cy.contains('button', 'Cadastrar').click()
-
-            cy.get('.toast')
-                .should('be.visible')
-                .find('p')
-                .should('have.text', 'Agora você se tornou um(a) Samurai, faça seu login para ver seus agendamentos!')
+            signupPage.go()
+            signupPage.form(user)
+            signupPage.submit()
+            signupPage.toasterHaveText('Agora você se tornou um(a) Samurai, faça seu login para ver seus agendamentos!')
         })
-
     })
 
     context('Quando o email já existe', function () {
@@ -56,28 +47,14 @@ describe('Cadastro', function () {
             ).then(function (response) {
                 expect(response.status).to.eql(200)
             })
-
         })
 
         it('não deve cadastrar o usuário', function () {
-
-            cy.visit('/signup')
-
-            cy.get('input[placeholder^="Nome"]').type(user.name)
-            cy.get('input[placeholder$="email"]').type(user.email)
-            cy.get('input[placeholder*="senha"]').type(user.password)
-
-            cy.contains('button', 'Cadastrar').click()
-
-            cy.get('.toast')
-                .should('be.visible')
-                .find('p')
-                .should('have.text', 'Email já cadastrado para outro usuário.')
-
+            signupPage.go()
+            signupPage.form(user)
+            signupPage.submit()
+            signupPage.toasterHaveText('Email já cadastrado para outro usuário.')
         })
-
     })
-
-
 })
 
