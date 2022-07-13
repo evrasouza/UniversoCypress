@@ -1,11 +1,6 @@
 import {el} from './elements'
-import toast from '../../components/toast'
 
 class LoginPage {
-
-    // constructor() {
-    //     this.toast = toast
-    // }
 
     go() {
         cy.visit('/')
@@ -17,13 +12,8 @@ class LoginPage {
     }
 
     submit(){
-        cy.contains(el.signupButton).click()
+        cy.contains(el.loginButton).click()
     }
-
-
-    // alertHaveText(expectText) {
-    //     cy.contains('.alert-error', expectText).should('be.visible')
-    // }
 }
 
 export default new LoginPage()
