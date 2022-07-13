@@ -26,4 +26,30 @@ describe('login', function () {
 
     })
 
+    context.only('quando o usuário é bom mas a senha esta incorreta', function () {
+
+        let user = {
+            name: "krisium",
+            email: "krisium@samuraibs.com.br",
+            password: "pwd123",
+            is_provider: true
+        }
+
+        before(function () {
+            cy.postUser(user).then(function() {
+                user.password = 'abc123'
+            })
+            
+        })
+
+        it('deve notificar erro de credenciais', function () {
+            loginPage.go()
+            loginPage.form(user)
+            loginPage.submit()
+
+            cy.wait(5000)            
+        })
+
+    })
+
 })
