@@ -26,7 +26,7 @@ describe('login', function () {
 
     })
 
-    context.only('quando o usuário é bom mas a senha esta incorreta', function () {
+    context('quando o usuário é bom mas a senha esta incorreta', function () {
 
         let user = {
             name: "krisium",
@@ -36,17 +36,46 @@ describe('login', function () {
         }
 
         before(function () {
-            cy.postUser(user).then(function() {
+            cy.postUser(user).then(function () {
                 user.password = 'abc123'
             })
-            
+
         })
 
         it('deve notificar erro de credenciais', function () {
             loginPage.go()
             loginPage.form(user)
-            loginPage.submit()            
+            loginPage.submit()
             loginPage.toast.shouldHaveText('Ocorreu um erro ao fazer login, verifique suas credenciais.')
+        })
+
+    })
+
+    context.only('quando o formato do email é inválido', function () {
+
+        const emails = [
+            'notreve.com.br',
+            'yahoo.com',
+            '@gmail.com',
+            '@',
+            'notreve@',
+            '111',
+            '&*^&^&*',
+            'xpto123'
+        ]
+
+        before(function(){
+            loginPage.go()
+        })
+
+        emails.forEach(function (email) {
+            it('não deve logar com o email: ' + email, function () {
+                const user = { email: email, password: 'pwd123' }
+
+                loginPage.form(user)
+                loginPage.submit()
+                loginPage.alertHaveText('Informe um email válido')
+            })
         })
 
     })
