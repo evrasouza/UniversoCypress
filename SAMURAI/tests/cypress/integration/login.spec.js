@@ -45,9 +45,8 @@ describe('login', function () {
         it('deve notificar erro de credenciais', function () {
             loginPage.go()
             loginPage.form(user)
-            loginPage.submit()
-
-            cy.wait(5000)            
+            loginPage.submit()            
+            loginPage.toast.shouldHaveText('Ocorreu um erro ao fazer login, verifique suas credenciais.')
         })
 
     })
