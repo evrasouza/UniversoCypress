@@ -3,15 +3,18 @@ import signupPage from '../support/pages/signup'
 describe('Cadastro', function () {
 
     before(function(){
-        cy.fixture('everton').then(function(everton) {
-            this.everton = everton
+        cy.fixture('signup').then(function(signup) {
+            this.success = signup.success
+            this.email_dup = signup.email_dup
+            this.email_inv = signup.email_inv
+            this.short_password = signup.short_password
         })
     })
 
-    context.only('Quando o usuario é novato', function() {
+    context('Quando o usuario é novato', function() {
 
         before(function () {
-            cy.task('removeUser', this.everton.email)
+            cy.task('removeUser', this.success.email)
                 .then(function (result) {
                     console.log(result)
                 })
@@ -19,7 +22,7 @@ describe('Cadastro', function () {
 
         it('deve cadastrar com sucesso', function () {
             signupPage.go()
-            signupPage.form(this.everton)
+            signupPage.form(this.success)
             signupPage.submit()
             signupPage.toast.shouldHaveText('Agora você se tornou um(a) Samurai, faça seu login para ver seus agendamentos!')
         })
@@ -27,20 +30,13 @@ describe('Cadastro', function () {
 
     context('Quando o email já existe', function() {
 
-        const user = {
-            name: 'Dave Murray',
-            email: 'davemurray@samuraibs.com.br',
-            password: 'pwd123',
-            is_provider: true
-        }
-
         before(function () {
-            cy.postUser(user)
+            cy.postUser(this.email_dup)
         })
 
         it('não deve cadastrar o usuário', function () {
             signupPage.go()
-            signupPage.form(user)
+            signupPage.form(this.email_dup)
             signupPage.submit()
             signupPage.toast.shouldHaveText('Email já cadastrado para outro usuário.')
         })
@@ -48,16 +44,9 @@ describe('Cadastro', function () {
 
     context('quando o email é incorreto', function() {
 
-        const user = {
-            name: 'Steve Harris',
-            email: 'steveharris.samuraibs.com.br',
-            password: 'pwd123',
-            is_provider: true
-        }
-
         it('deve exibir mensagem de alerta', function () {
             signupPage.go()
-            signupPage.form(user)            
+            signupPage.form(this.email_inv)            
             signupPage.submit()
             signupPage.alertHaveText('Informe um email válido')
 
@@ -75,10 +64,8 @@ describe('Cadastro', function () {
 
         passwords.forEach(function(p){
             it('não deve cadastrar com a senha: ' + p, function () {
-
-                const user = { name: 'Janick Gers', email: 'janickgers@samuraibs.com.br', password: p }
-
-                signupPage.form(user)            
+                this.short_password.password = p
+                signupPage.form(this.short_password)            
                 signupPage.submit()                
             })
         })
