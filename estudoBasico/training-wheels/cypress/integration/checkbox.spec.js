@@ -11,10 +11,11 @@ it('deve marcar os top 5 filmes da marvel', function () {
         'thor3'
     ]
 
-    movies.forEach(function(m){
-        cy.get(`input[name=${m}]`)
-        .click()
-        .should('be.checked')
+    movies.forEach(function (m) {
+        cy
+            .get(`input[name=${m}]`)
+            .click()
+            .should('be.checked')
     })
 
 })
