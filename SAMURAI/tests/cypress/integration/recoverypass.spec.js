@@ -19,8 +19,7 @@ describe('resgate de senha', function() {
             fpPage.form(this.data.email)
             fpPage.submit()
 
-            //const message = 'Enviamos um e-mail para confirmar a recuperação de senha, cheque sua caixa de entrada.'
-            const message = 'Ocorreu um erro ao tentar realizar a recuperação de senha'
+            const message = 'Enviamos um e-mail para confirmar a recuperação de senha, cheque sua caixa de entrada.'
 
             fpPage.toast.shouldHaveText(message)
         })
