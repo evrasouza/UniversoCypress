@@ -1,3 +1,4 @@
+const { CopyResponse } = require("pg-protocol/dist/messages")
 
 
     describe('dashboard', function () {
@@ -22,6 +23,9 @@
             before(function () {
                 cy.postUser(data.customer)
                 cy.postUser(data.samurai)
+
+                cy.apiLogin(data.customer)
+                cy.log('Conseguimos pegar o token ' + Cypress.env('apiToken') )
             })
 
     
@@ -33,3 +37,23 @@
         })
 
     })
+
+Cypress.Commands.add('apiLogin', function(user){
+
+        const payload = {
+            email: user.email,
+            password: user.password
+        }
+
+        cy.request({
+            method: 'POST',
+            url: 'http://localhost:3333/sessions',
+            body: payload
+        }).then(function(response) {
+            expect(response.status).to.eql(200)
+            Cypress.env('apiToken', response.body.token)
+        })
+            
+            
+        
+})
