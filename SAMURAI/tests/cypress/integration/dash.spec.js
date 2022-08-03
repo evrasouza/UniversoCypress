@@ -1,56 +1,71 @@
-const { CopyResponse } = require("pg-protocol/dist/messages")
+import loginPage from '../support/pages/login'
 
+describe('dashboard', function () {
 
-    describe('dashboard', function () {
+    context('quando o cliente faz o agendamento no app mobile', function () {
 
-        context('quando o cliente faz o agendamento no app mobile', function () {
-
-            const data = {
-                customer: {
-                    name: 'Nikki Sixx',
-                    email: 'sixx@motleycure.com',
-                    password: 'pwd123',
-                    is_provider: false
-                },
-                provider: {
-                    name: 'Ramon Valdes',
-                    email: 'ramon@televisa.com',
-                    password: 'pwd123',
-                    is_provider: true
-                }
+        const data = {
+            customer: {
+                name: 'Nikki Sixx',
+                email: 'sixx@motleycure.com',
+                password: 'pwd123',
+                is_provider: false
+            },
+            provider: {
+                name: 'Ramon Valdes',
+                email: 'ramon@televisa.com',
+                password: 'pwd123',
+                is_provider: true
             }
+        }
 
-            before(function () {
-                cy.postUser(data.provider)
-                cy.postUser(data.customer)                
+        before(function () {
+            cy.postUser(data.provider)
+            cy.postUser(data.customer)                
 
-                cy.apiLogin(data.customer)
-                cy.log('Conseguimos pegar o token ' + Cypress.env('apiToken') )
-
-                cy.setProviderId(data.provider.email)
-            })
-
-    
-            it('o mesmo deve ser exibido no dashboard', function () {
-
-                cy.log('O Id do Ramon eh ' + Cypress.env('providerId'))
-                cy.createAppointment()
-            })
-    
+            cy.apiLogin(data.customer)
+            cy.setProviderId(data.provider.email)
+            cy.createAppointment()
         })
 
+    
+        it('o mesmo deve ser exibido no dashboard', function () {
+
+            loginPage.go()
+            loginPage.form(data.provider)
+            loginPage.submit()
+
+            cy.wait(3000)
+                    
+        })
+    
     })
+
+})
 
 import moment from 'moment'
 
 Cypress.Commands.add('createAppointment', function(){
     let now = new Date()
-
     now.setDate(now.getDate() + 1)    
 
-    const day = moment(now).format('YYYY-MM-DD 14:00:00')
+    const date = moment(now).format('YYYY-MM-DD 14:00:00')
 
-    cy.log(day)
+    const payload = {
+        provider_id: Cypress.env('providerId'),
+        date: date
+    }
+
+    cy.request({
+        method: 'POST',
+        url: 'http://localhost:3333/appointments',
+        body: payload,
+        headers: {
+            authorization: 'Bearer ' +  Cypress.env('apiToken')
+        }
+    }).then(function(response) {
+        expect(response.status).to.eql(200)
+    }) 
         
 })    
 
