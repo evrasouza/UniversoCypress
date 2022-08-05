@@ -43,9 +43,9 @@
     
 #### 🧰 Últimos vídeos do Youtube da [QAcademy](https://github.com/weareqacademy)
 <!-- YOUTUBE:START -->
+- [O que não te contaram sobre o BDD!  O papel do QA Moderno | Podcast OlaQAh #01](https://www.youtube.com/watch?v=xpDhQzGnCdQ)
+- [Workshop de Planejamento de Testes #live](https://www.youtube.com/watch?v=PxO-clXRCpM)
 - [Validando Toasters com Playwright #Playwright #Toast](https://www.youtube.com/watch?v=49YFO4ppvt0)
 - [Cypress Mock e Intercepts #Cypress #CypressDiscovery](https://www.youtube.com/watch?v=HJmlWMDMK30)
-- [Workshop de Planejamento de Testes #live](https://www.youtube.com/watch?v=PxO-clXRCpM)
 - [Introdução ao Playwright - 4ALL Tests Referências 2022](https://www.youtube.com/watch?v=LEY3BLh_dA8)
-- [Entenda a importância do Page Objects em projetos reais](https://www.youtube.com/watch?v=DlEh9WzMyxs)
 <!-- YOUTUBE:END -->
