@@ -123,7 +123,7 @@ Cypress.Commands.add('setProviderId', function (providerEmail) {
 
 })
 
-Cypress.Commands.add('apiLogin', function (user) {
+Cypress.Commands.add('apiLogin', function (user, setLocalStorage = false) {
 
     const payload = {
         email: user.email,
@@ -137,6 +137,16 @@ Cypress.Commands.add('apiLogin', function (user) {
     }).then(function (response) {
         expect(response.status).to.eql(200)
         Cypress.env('apiToken', response.body.token)
+
+        if (setLocalStorage) {
+            const { token, user} = response.body
+
+            window.localStorage.setItem('@Samurai:token', token)
+            window.localStorage.setItem('@Samurai:user', JSON.stringify(user))
+        }
+
     })
+
+    if (setLocalStorage) cy.visit('/dashboard')
 
 })
