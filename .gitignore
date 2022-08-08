@@ -1,1 +1,5 @@
 node_modules
+SAMURAI/tests/node_modules
+SAMURAI/tests/yarn.lock
+SAMURAI/tests/cypress/screenshots
+SAMURAI/tests/cypress/videos

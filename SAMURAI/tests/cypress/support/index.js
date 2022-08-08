@@ -20,6 +20,6 @@ import './commands'
 // require('./commands')
 
 // Screenshots para todos os testes (passando ou falhando)
-afterEach(function(){
-    cy.screenshot()
-})
+//afterEach(function(){
+//    cy.screenshot()
+//})
