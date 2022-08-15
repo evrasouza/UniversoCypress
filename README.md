@@ -43,9 +43,9 @@
     
 #### 🧰 Últimos vídeos do Youtube da [QAcademy](https://github.com/weareqacademy)
 <!-- YOUTUBE:START -->
+- [Enriquecendo estórias de usuários com Gherkin #OlaQA 01](https://www.youtube.com/watch?v=wIbMstBVp_o)
 - [Planejando critérios de aceitação no ágil #OlaQA 01](https://www.youtube.com/watch?v=mmhaUc2bWCA)
 - [Validando Estórias de Usuários #OlaQA 01](https://www.youtube.com/watch?v=DXb_BlXPZdU)
 - [O que não te contaram sobre o BDD!  O papel do QA Moderno | Podcast OlaQAh #01](https://www.youtube.com/watch?v=xpDhQzGnCdQ)
 - [Workshop de Planejamento de Testes #live](https://www.youtube.com/watch?v=PxO-clXRCpM)
-- [Validando Toasters com Playwright #Playwright #Toast](https://www.youtube.com/watch?v=49YFO4ppvt0)
 <!-- YOUTUBE:END -->
