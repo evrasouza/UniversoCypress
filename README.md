@@ -43,9 +43,9 @@
     
 #### 🧰 Últimos vídeos do Youtube da [QAcademy](https://github.com/weareqacademy)
 <!-- YOUTUBE:START -->
+- [BDD não é automação e nem processo. BDD é TÉCNICA #OlaQA 01](https://www.youtube.com/watch?v=OvO7zYESlAs)
+- [Pare de escrever teste tradicional pensando ser BDD #OlaQA 01](https://www.youtube.com/watch?v=LSEOEaRE8L4)
 - [Enriquecendo estórias de usuários com Gherkin #OlaQA 01](https://www.youtube.com/watch?v=wIbMstBVp_o)
 - [Planejando critérios de aceitação no ágil #OlaQA 01](https://www.youtube.com/watch?v=mmhaUc2bWCA)
 - [Validando Estórias de Usuários #OlaQA 01](https://www.youtube.com/watch?v=DXb_BlXPZdU)
-- [O que não te contaram sobre o BDD!  O papel do QA Moderno | Podcast OlaQAh #01](https://www.youtube.com/watch?v=xpDhQzGnCdQ)
-- [Workshop de Planejamento de Testes #live](https://www.youtube.com/watch?v=PxO-clXRCpM)
 <!-- YOUTUBE:END -->
