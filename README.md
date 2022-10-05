@@ -43,9 +43,9 @@
     
 #### 🧰 Últimos vídeos do Youtube da [QAcademy](https://github.com/weareqacademy)
 <!-- YOUTUBE:START -->
-- [Live - Ganhadores do Desafio VDT - Abertura da Matriculas para o Robocamp](https://www.youtube.com/watch?v=Kplei9Z5tyE)
 - [BDD não é automação e nem processo. BDD é TÉCNICA #OlaQA 01](https://www.youtube.com/watch?v=OvO7zYESlAs)
 - [Pare de escrever teste tradicional pensando ser BDD #OlaQA 01](https://www.youtube.com/watch?v=LSEOEaRE8L4)
 - [Enriquecendo estórias de usuários com Gherkin #OlaQA 01](https://www.youtube.com/watch?v=wIbMstBVp_o)
 - [Planejando critérios de aceitação no ágil #OlaQA 01](https://www.youtube.com/watch?v=mmhaUc2bWCA)
+- [Validando Estórias de Usuários #OlaQA 01](https://www.youtube.com/watch?v=DXb_BlXPZdU)
 <!-- YOUTUBE:END -->
